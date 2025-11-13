@@ -147,7 +147,7 @@ Make sure you have the following installed:
         ```sql
         USE animes_db;
         ```
-4.  Run the entire script (⚡ icon) to create the schema on your local machine.
+4.  Run the entire script (⚡icon ) to create the schema on your local machine.
 
 #### Run Test Data & Analysis
 
