@@ -13,19 +13,14 @@ The project focuses on **robust relational schema design**, **3NF normalization*
 ## 📜 Table of Contents
 
 * [✨ Key Features](#-key-features)
-* [🛠️ Technology Stack](#%EF%B8%8F-technology-stack)
+* [🛠️ Technology Stack](#-technology-stack)
 * [🏗️ Database Schema](#-database-schema)
-
   * [📘 EER Diagram](#eer-diagram)
   * [🧩 Table Descriptions](#table-descriptions)
 * [📂 File Structure](#-file-structure)
-* [🚀 Setup and Usage](#-setup-and-usage)
-
-  * [🧱 Prerequisites](#prerequisites)
-  * [1️⃣ Database Creation](#1-database-creation)
-  * [2️⃣ Run Test Data (Optional)](#2-run-test-data-optional)
-  * [3️⃣ Run Performance Analysis](#3-run-performance-analysis)
-* [🔐 Database Access](#-database-access)
+* [🚀 Setup and Connection](#-setup-and-connection)
+  * [Option 1: Connect to the Live Cloud DB (Recommended)](#option-1-connect-to-the-live-cloud-db-recommended)
+  * [Option 2: Replicate the Project Locally (Advanced)](#option-2-replicate-the-project-locally-advanced)
 * [📊 Query Performance Analysis](#-query-performance-analysis)
 
 ---
@@ -47,6 +42,7 @@ The schema supports the core functionalities of a modern anime tracking platform
 | Category                 | Tools                             |
 | :----------------------- | :-------------------------------- |
 | **Database**             | MySQL Server 8.0                  |
+| **Cloud Hosting**        | **Railway.app**                   |
 | **IDE & Design**         | MySQL Workbench                   |
 | **Analysis & Scripting** | Python 3 (Google Colab / Jupyter) |
 | **Connector**            | `mysql-connector-python`          |
@@ -90,91 +86,143 @@ ER-to-relational mapping follows formal academic standards.
 
 ---
 
-## 🚀 Setup and Usage
+## 🚀 Setup and Connection
 
-Follow these steps to replicate the project and run your analysis.
+There are two ways to work with this project:
 
-### 🧱 Prerequisites
-
-Make sure you have:
-
-* ✅ **MySQL Server 8.0+**
-* ✅ **MySQL Workbench** or equivalent client
-* ✅ **Python 3.x** with:
-
-  ```bash
-  pip install pandas mysql-connector-python
-  ```
+1. **Connect to the live, shared cloud database** (Recommended for the team/professor).  
+2. **Create a local replication** (If you want your own separate copy).
 
 ---
 
-### 1️⃣ Database Creation
+### 🟢 Option 1: Connect to the Live Cloud DB (Recommended)
 
-1. Open **MySQL Workbench** and connect to your MySQL instance.
-2. Open the file `01_criacao_esquema.sql`.
-3. Run the script (⚡Execute All).
-   → This creates the full `animes_db` schema with all tables and constraints.
+The project's main database is hosted on **Railway.app**, allowing the team and professor to access the same consistent dataset — also compatible with **Google Colab**.
 
----
+#### 1. Connect with MySQL Workbench
 
-### 2️⃣ Run Test Data (Optional)
+1. Open MySQL Workbench and click the **`+`** icon to create a new connection.  
+2. You will need the following credentials:
+   - `Hostname`
+   - `Port`
+   - `Username`
+   - `Password`
+   - `Default Schema` (Database Name)
+3. **To get these credentials, please contact Amanda Fernandes directly.**
+4. Click **"Test Connection"**, enter the password, and save.  
+   You can now browse the live cloud database.
 
-1. Open `02_testes_e_amostras.sql` in MySQL Workbench.
-2. Execute the entire script.
-3. Verify the data:
+#### 2. Run Performance Analysis (Google Colab / Jupyter)
 
-   ```sql
-   SELECT * FROM USUARIO;
-   SELECT * FROM ANIME;
-   ```
-
----
-
-### 3️⃣ Run Performance Analysis
-
-1. Open the notebook `TP2_Implementacao_Consultas_Animes.ipynb` in **Google Colab** or **Jupyter**.
-2. In the first cell (*Configuração do Ambiente*), update:
+1. Open the notebook `TP2_Implementacao_Consultas_Animes.ipynb`.  
+2. In the first code cell (*Configuração do Ambiente*), enter the credentials provided:
 
    ```python
-   DB_HOST = "your_host"
-   DB_USER = "your_username"
-   DB_PASSWORD = "your_password"
-   DB_NAME = "animes_db"
-   ```
-3. Run all cells sequentially (`Runtime > Run all`).
+   # Credentials for the Railway.app hosted database
+   DB_HOST = "your_host_from_railway"
+   DB_USER = "your_username_from_railway"
+   DB_PASSWORD = "your_password_from_railway"
+   DB_NAME = "your_database_name_from_railway"
+   DB_PORT = "your_port_from_railway"
 
-The notebook will:
+   # Example connection
+   # conn = mysql.connector.connect(
+   #     host=DB_HOST, 
+   #     user=DB_USER, 
+   #     password=DB_PASSWORD, 
+   #     database=DB_NAME, 
+   #     port=DB_PORT
+   # )
 
-* Connect to your MySQL instance.
-* Populate the database with a large volume of synthetic data (DML).
-* Execute all 10 required analysis queries, each in at least two different formulations.
-* Measure and benchmark the execution time of each query (averaged over 5 runs to avoid cold-start issues).
-* Display the results and timings in formatted tables for easy comparison.
+## ⚙️ Option 2: Replicate the Project Locally (Advanced)
 
----
+If you want to create your own local version of the database:
 
-## 🔐 Database Access
+### 1.Prerequisites
 
-For academic integrity and data security reasons, **the original populated database (with full test dataset)** is **not publicly accessible**.
+Make sure you have the following installed:
 
-> If you would like to explore the original dataset or connect to the remote instance used for benchmarking, please **contact me directly** for access credentials.
-> Sensitive information (e.g., passwords or host details) will only be shared upon verified request for educational purposes.
+- **MySQL Server** and **MySQL Workbench**  
+- **Python 3.x** with the following libraries:
+  ```bash
+  pip install mysql-connector-python pandas
 
----
+Jupyter Notebook or Google Colab for analysis
+
+
+### 2.Database Creation
+
+Connect to your localhost instance in MySQL Workbench.
+
+Open the file 01_criacao_esquema.sql.
+
+Modify the script for local use:
+
+Uncomment (or add):
+
+CREATE SCHEMA IF NOT EXISTS animes_db;
+
+Replace:
+
+USE railway;
+
+with:
+
+USE animes_db;
+
+
+Run the entire script (⚡ icon) to create the schema on your local machine.
+
+### 3. Run Test Data & Analysis
+
+Open 02_testes_e_amostras.sql and replace:
+
+USE railway;
+
+with:
+USE animes_db;
+
+
+Execute the script to populate the tables.
+
+Follow the same Performance Analysis steps, but use your local credentials, for example:
+
+DB_HOST = "localhost"
+DB_USER = "root"
+DB_PASSWORD = "your_password"
+DB_NAME = "animes_db"
+DB_PORT = "3306"
 
 ## 📊 Query Performance Analysis
 
 Performance tests are detailed in the Jupyter notebook.
-Each query is analyzed in two or more formulations to evaluate SQL efficiency.
+Each query was executed in two or more formulations to evaluate SQL efficiency.
 
-**Metrics & Methodology**
+📈 Metrics & Methodology
 
-* Each query runs 5 times (average execution time recorded).
-* Topics include:
+Each query runs 5 times (average execution time recorded).
+Benchmarks focus on:
 
-  * Simple projections and selections
-  * 2-table and 3+ table joins
-  * Aggregations with `GROUP BY`, `HAVING`, and nested subqueries
-  * Query optimization and indexing impact
+Simple projections and selections
 
----
+2-table and 3+ table joins
+
+Aggregations with GROUP BY, HAVING, and nested subqueries
+
+Query optimization and indexing impact
+
+👩🏽‍💻 Authors
+- Amanda Fernandes Alves
+- Carolina Vilazante Portella
+
+📚 Course
+
+Introduction to Databases (DCC011) — UFMG
+
+🌐 Hosted on
+Railway.app
+
+🙌🏽 Acknowledgments
+
+Special thanks to the UFMG Database Department for providing the learning foundation for this project.
+And to all contributors and peers who inspired the development of AniVerse-DB.
