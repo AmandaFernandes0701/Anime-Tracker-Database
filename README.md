@@ -209,5 +209,5 @@ Each query was executed in two or more formulations to evaluate SQL efficiency.
 
 ### 🙌🏽 Acknowledgments
 
-Special thanks to the UFMG Database Department for providing the learning foundation for this project.
+Special thanks to [DCC - UFMG](https://dcc.ufmg.br/) for providing the learning foundation for this project.
 And to all contributors and peers who inspired the development of AniVerse-DB.
