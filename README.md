@@ -44,7 +44,7 @@ ER-to-relational mapping follows formal academic standards.
 
 <img width="708" height="612" alt="diagrama_EER_imagem" src="https://github.com/user-attachments/assets/f38c2097-c720-4fdd-8d12-53985fc1d44c" />
 
-> 🖼️ *EER Diagram generated with MySQL Workbench*
+> *EER Diagram generated with MySQL Workbench*
 
 ### 🧩 Table Descriptions
 
