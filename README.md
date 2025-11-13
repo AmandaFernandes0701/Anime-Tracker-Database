@@ -10,22 +10,6 @@ The project focuses on **robust relational schema design**, **3NF normalization*
 
 ---
 
-## 📜 Table of Contents
-
-* [✨ Key Features](#-key-features)
-* [🛠️ Technology Stack](#-technology-stack)
-* [🏗️ Database Schema](#-database-schema)
-  * [📘 EER Diagram](#eer-diagram)
-  * [🧩 Table Descriptions](#table-descriptions)
-* [📂 File Structure](#-file-structure)
-* [🚀 Setup and Connection](#-setup-and-connection)
-  * [Option 1: Connect to the Live Cloud DB (Recommended)](#-option-1-connect-to-the-live-cloud-db-recommended)
-  * [Option 2: Replicate the Project Locally (Advanced)](#-option-2-replicate-the-project-locally-advanced)
-* [📊 Query Performance Analysis](#-query-performance-analysis)
-* [👩🏽‍💻 Authors](#-authors)
-
----
-
 ## ✨ Key Features
 
 The schema supports the core functionalities of a modern anime tracking platform:
