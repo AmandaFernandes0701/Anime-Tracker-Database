@@ -192,8 +192,12 @@ Each query was executed in two or more formulations to evaluate SQL efficiency.
 
 ### 👩🏽‍💻 Authors
 
-  * Amanda Fernandes Alves
-  * Carolina Vilazante Portella
+* Amanda Fernandes Alves [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/amanda-fernandes-software-engineer)
+* Carolina Vilazante Portella [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/URL-DA-CAROLINA)
+    
+### 👨🏻‍🏫 Professor
+
+* Marcos André Goncalves [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/marcos-andré-goncalves-b153147/)
 
 ### 📚 Course
 
