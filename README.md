@@ -34,11 +34,11 @@ The project focuses on **robust relational schema design**, **3NF normalization*
 
 The schema supports the core functionalities of a modern anime tracking platform:
 
-* 👤 **User Management:** User registration and profiles.
-* 🎬 **Anime Cataloging:** Detailed anime information with studio relations (`ESTUDIO`).
-* 🗂️ **Personalized Tracking:** Custom user lists (`LISTA_USUARIO`) with status, rating, and episode progress.
-* 📝 **Review System:** User-written reviews linked to `USUARIO` and `ANIME`.
-* 🧠 **Normalized Design:** Fully normalized (3NF), eliminating redundancy and ensuring data integrity.
+* **User Management:** User registration and profiles.
+* **Anime Cataloging:** Detailed anime information with studio relations (`ESTUDIO`).
+* **Personalized Tracking:** Custom user lists (`LISTA_USUARIO`) with status, rating, and episode progress.
+* **Review System:** User-written reviews linked to `USUARIO` and `ANIME`.
+* **Normalized Design:** Fully normalized (3NF), eliminating redundancy and ensuring data integrity.
 
 ---
 
@@ -82,10 +82,10 @@ ER-to-relational mapping follows formal academic standards.
 
 ```
 📦 AniVerse-DB
-├── 📄 01_criacao_esquema.sql          # DDL: creates full schema (tables, FKs, constraints)
-├── 📄 02_testes_e_amostras.sql        # DML: sample/test data to validate schema
-├── 📘 DCC011_TP2_Analise_Desempenho.ipynb  # Jupyter/Colab notebook for performance analysis
-└── 🪶 README.md                        # You’re reading it now :)
+├── 📄 01_criacao_esquema.sql                # DDL: creates full schema (tables, FKs, constraints)
+├── 📄 02_testes_e_amostras.sql              # DML: sample/test data to validate schema
+├── 📘 DCC011_TP2_Analise_Desempenho.ipynb   # Jupyter/Colab notebook for performance analysis
+└── 🪶 README.md                             # You’re reading it now :)
 ```
 
 ---
