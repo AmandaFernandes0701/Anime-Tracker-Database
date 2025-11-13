@@ -2,7 +2,6 @@
 
 ![MySQL Version](https://img.shields.io/badge/MySQL-8.0-blue.svg?logo=mysql)
 ![Python Version](https://img.shields.io/badge/Python-3.10-blue.svg?logo=python)
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 This repository contains the complete database implementation for **AniVerse**, a conceptual anime list tracking platform (similar to MyAnimeList). It was developed as the final project for the **Introduction to Databases course (DCC011) at UFMG**.
 
@@ -24,7 +23,6 @@ The project's core focus is on robust relational schema design (ER mapping, 3NF)
     * [2. Run Test Data (Optional)](#2-run-test-data-optional)
     * [3. Run Performance Analysis](#3-run-performance-analysis)
 * [Query Performance Analysis](#-query-performance-analysis)
-* [License](#-license)
 
 ---
 
@@ -141,7 +139,3 @@ The primary goal of this project is documented in the Jupyter Notebook (`.ipynb`
     * Aggregations (`GROUP BY`, `AVG`, `COUNT`) combined with `JOIN`s and `HAVING` clauses.
 
 ---
-
-## ⚖️ License
-
-This project is licensed under the MIT License. See the `LICENSE` file for details.
