@@ -63,10 +63,10 @@ ER-to-relational mapping follows formal academic standards.
 
 ```text
 📦 AniVerse-DB
-├── 📄 01_criacao_esquema.sql                # DDL: creates full schema (tables, FKs, constraints)
-├── 📄 02_testes_e_amostras.sql                # DML: sample/test data to validate schema
-├── 📘 TP2_Implementacao_Consultas_Animes.ipynb # Notebook for data loading (DML), all 10 analysis queries, and performance benchmarking.
-└── 🪶 README.md                             # You’re reading it now :)
+├── 📄 01_criacao_esquema.sql                       # DDL: creates full schema (tables, FKs, constraints)
+├── 📄 02_testes_e_amostras.sql                     # DML: sample/test data to validate schema
+├── 📘 TP2_Implementacao_Consultas_Animes.ipynb     # Notebook for data loading (DML), all 10 analysis queries, and performance benchmarking.
+└── 🪶 README.md                                    # You’re reading it now :)
 ````
 
 -----
