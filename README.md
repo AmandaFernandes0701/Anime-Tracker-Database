@@ -112,7 +112,7 @@ Make sure you have:
 
 1. Open **MySQL Workbench** and connect to your MySQL instance.
 2. Open the file `01_criacao_esquema.sql`.
-3. Run the script (⚡ Execute All).
+3. Run the script (⚡Execute All).
    → This creates the full `animes_db` schema with all tables and constraints.
 
 ---
@@ -145,11 +145,11 @@ Make sure you have:
 
 The notebook will:
 
-🔌 Connect to your MySQL instance.
-🚛 Populate the database with a large volume of synthetic data (DML).
-⚙️ Execute all 10 required analysis queries, each in at least two different formulations.
-⏱️ Measure and benchmark the execution time of each query (averaged over 5 runs to avoid cold-start issues).
-📈 Display the results and timings in formatted tables for easy comparison.
+* Connect to your MySQL instance.
+* Populate the database with a large volume of synthetic data (DML).
+* Execute all 10 required analysis queries, each in at least two different formulations.
+* Measure and benchmark the execution time of each query (averaged over 5 runs to avoid cold-start issues).
+* Display the results and timings in formatted tables for easy comparison.
 
 ---
 
@@ -157,7 +157,7 @@ The notebook will:
 
 For academic integrity and data security reasons, **the original populated database (with full test dataset)** is **not publicly accessible**.
 
-> 📨 If you would like to explore the original dataset or connect to the remote instance used for benchmarking, please **contact me directly** for access credentials.
+> If you would like to explore the original dataset or connect to the remote instance used for benchmarking, please **contact me directly** for access credentials.
 > Sensitive information (e.g., passwords or host details) will only be shared upon verified request for educational purposes.
 
 ---
@@ -169,8 +169,8 @@ Each query is analyzed in two or more formulations to evaluate SQL efficiency.
 
 **Metrics & Methodology**
 
-* ⏱️ Each query runs 5 times (average execution time recorded).
-* 🧮 Topics include:
+* Each query runs 5 times (average execution time recorded).
+* Topics include:
 
   * Simple projections and selections
   * 2-table and 3+ table joins
