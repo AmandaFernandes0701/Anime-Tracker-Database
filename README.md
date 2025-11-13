@@ -1,141 +1,179 @@
-# AniVerse-DB: Anime Tracker Database Project
+# 🎌 AniVerse-DB: Anime Tracker Database Project
 
 ![MySQL Version](https://img.shields.io/badge/MySQL-8.0-blue.svg?logo=mysql)
 ![Python Version](https://img.shields.io/badge/Python-3.10-blue.svg?logo=python)
 
-This repository contains the complete database implementation for **AniVerse**, a conceptual anime list tracking platform (similar to MyAnimeList). It was developed as the final project for the **Introduction to Databases course (DCC011) at UFMG**.
+This repository contains the complete database implementation for **AniVerse**, a conceptual anime list tracking platform (similar to *MyAnimeList*).
+Developed as the final project for the **Introduction to Databases (DCC011)** course at **UFMG**.
 
-The project's core focus is on robust relational schema design (ER mapping, 3NF), DDL/DML implementation, and in-depth SQL query performance analysis.
+The project focuses on **robust relational schema design**, **3NF normalization**, **SQL DDL/DML implementation**, and **query performance analysis**.
 
 ---
 
 ## 📜 Table of Contents
 
-* [Key Features](#-key-features)
-* [Technology Stack](#-technology-stack)
-* [Database Schema](#-database-schema)
-    * [EER Diagram](#eer-diagram)
-    * [Table Descriptions](#table-descriptions)
-* [File Structure](#-file-structure)
-* [Setup and Usage](#-setup-and-usage)
-    * [Prerequisites](#prerequisites)
-    * [1. Database Creation](#1-database-creation)
-    * [2. Run Test Data (Optional)](#2-run-test-data-optional)
-    * [3. Run Performance Analysis](#3-run-performance-analysis)
-* [Query Performance Analysis](#-query-performance-analysis)
+* [✨ Key Features](#-key-features)
+* [🛠️ Technology Stack](#%EF%B8%8F-technology-stack)
+* [🏗️ Database Schema](#-database-schema)
+
+  * [📘 EER Diagram](#eer-diagram)
+  * [🧩 Table Descriptions](#table-descriptions)
+* [📂 File Structure](#-file-structure)
+* [🚀 Setup and Usage](#-setup-and-usage)
+
+  * [🧱 Prerequisites](#prerequisites)
+  * [1️⃣ Database Creation](#1-database-creation)
+  * [2️⃣ Run Test Data (Optional)](#2-run-test-data-optional)
+  * [3️⃣ Run Performance Analysis](#3-run-performance-analysis)
+* [🔐 Database Access](#-database-access)
+* [📊 Query Performance Analysis](#-query-performance-analysis)
 
 ---
 
 ## ✨ Key Features
 
-The database schema is designed to support the core functionalities of a modern tracking platform:
+The schema supports the core functionalities of a modern anime tracking platform:
 
-* **User Management:** Schema for user registration and profiles.
-* **Anime Cataloging:** Stores detailed anime information, including relations to animation studios (`ESTUDIO`).
-* **Personalized Tracking:** Users can add anime to their personal lists (`LISTA_USUARIO`) with statuses (`Watching`, `Completed`, `Planned`), ratings, and episode progress.
-* **Review System:** Allows users to write and store detailed reviews (`REVIEW`) for any anime.
-* **Normalized Design:** Fully normalized (3NF) schema to ensure data integrity, eliminate redundancy, and handle multi-valued attributes (`ANIME_GENERO`).
+* 👤 **User Management:** User registration and profiles.
+* 🎬 **Anime Cataloging:** Detailed anime information with studio relations (`ESTUDIO`).
+* 🗂️ **Personalized Tracking:** Custom user lists (`LISTA_USUARIO`) with status, rating, and episode progress.
+* 📝 **Review System:** User-written reviews linked to `USUARIO` and `ANIME`.
+* 🧠 **Normalized Design:** Fully normalized (3NF), eliminating redundancy and ensuring data integrity.
 
 ---
 
 ## 🛠️ Technology Stack
 
-This project was built using the following technologies:
-
-* **Database:** MySQL Server 8.0
-* **IDE & Design:** MySQL Workbench
-* **Analysis & Scripting:** Python 3 (via Google Colab / Jupyter)
-* **Connector:** `mysql-connector-python`
-* **Data Handling:** `pandas` (for displaying query results)
+| Category                 | Tools                             |
+| :----------------------- | :-------------------------------- |
+| **Database**             | MySQL Server 8.0                  |
+| **IDE & Design**         | MySQL Workbench                   |
+| **Analysis & Scripting** | Python 3 (Google Colab / Jupyter) |
+| **Connector**            | `mysql-connector-python`          |
+| **Data Handling**        | `pandas`                          |
 
 ---
 
 ## 🏗️ Database Schema
 
-The schema is designed to be in the Third Normal Form (3NF), ensuring data integrity and minimizing redundancy. The ER-to-Relational mapping follows the methodologies discussed in class.
+The schema was designed in **Third Normal Form (3NF)** to ensure consistency and scalability.
+ER-to-relational mapping follows formal academic standards.
 
-### EER Diagram
+### 📘 EER Diagram
 
-The following EER (Enhanced Entity-Relationship) diagram was reverse-engineered from the final schema using MySQL Workbench.
+*(Insert your exported diagram PNG/PDF here)*
 
-<br>
+> 🖼️ *EER Diagram generated with MySQL Workbench*
 
-> ****
-> *(Your exported diagram PNG/PDF goes here)*
+### 🧩 Table Descriptions
 
-<br>
-
-### Table Descriptions
-
-| Table | Purpose |
-| :--- | :--- |
-| **`USUARIO`** | Stores user profile information (ID, username, email). |
-| **`ESTUDIO`** | Stores animation studio details (ID, name, founding year). |
-| **`ANIME`** | The main catalog of anime titles. Linked to `ESTUDIO` via a 1:N FK. |
-| **`REVIEW`** | Stores user-written reviews. Linked to `USUARIO` and `ANIME`. |
-| **`ANIME_GENERO`** | Maps the M:N relationship for anime genres (handles the multi-valued 'genre' attribute). |
-| **`LISTA_USUARIO`** | The core M:N table linking `USUARIO` and `ANIME`. Stores tracking data (status, rating, episode progress). |
+| Table               | Purpose                                                    |
+| :------------------ | :--------------------------------------------------------- |
+| **`USUARIO`**       | Stores user profile information (ID, username, email).     |
+| **`ESTUDIO`**       | Animation studio details (ID, name, founding year).        |
+| **`ANIME`**         | Main anime catalog. Linked to `ESTUDIO` via FK.            |
+| **`REVIEW`**        | User reviews linked to `USUARIO` and `ANIME`.              |
+| **`ANIME_GENERO`**  | Handles M:N relationships for anime genres.                |
+| **`LISTA_USUARIO`** | Core M:N table linking users and anime with tracking data. |
 
 ---
 
 ## 📂 File Structure
 
-This repository is organized as follows:
-. ├── 01_criacao_esquema.sql ├── 02_testes_e_amostras.sql ├── DCC011_TP2_Analise_Desempenho.ipynb └── README.md
-
-* **`01_criacao_esquema.sql`**: The master DDL script. Running this single file creates the entire `animes_db` schema, including all tables, constraints, and foreign key relationships.
-* **`02_testes_e_amostras.sql`**: A DML script with a small set of sample data. Used to verify schema integrity, constraints, and JOINs before running the full analysis.
-* **`DCC011_TP2_Analise_Desempenho.ipynb`**: The Google Colab/Jupyter Notebook. This file connects to the database, runs the mass data population (DML), and executes the 10 required performance analysis queries.
-* **`README.md`**: This file.
+```
+📦 AniVerse-DB
+├── 📄 01_criacao_esquema.sql          # DDL: creates full schema (tables, FKs, constraints)
+├── 📄 02_testes_e_amostras.sql        # DML: sample/test data to validate schema
+├── 📘 DCC011_TP2_Analise_Desempenho.ipynb  # Jupyter/Colab notebook for performance analysis
+└── 🪶 README.md                        # You’re reading it now :)
+```
 
 ---
 
 ## 🚀 Setup and Usage
 
-To replicate this project and run the analysis, follow these steps.
+Follow these steps to replicate the project and run your analysis.
 
-### Prerequisites
+### 🧱 Prerequisites
 
-* A running instance of **MySQL Server 8.0+**
-* **MySQL Workbench** (or any other MySQL client)
-* **Python 3.x** (with `pandas` and `mysql-connector-python`)
+Make sure you have:
 
-### 1. Database Creation
+* ✅ **MySQL Server 8.0+**
+* ✅ **MySQL Workbench** or equivalent client
+* ✅ **Python 3.x** with:
 
-1.  Open **MySQL Workbench** and connect to your local or remote MySQL Server.
-2.  Open the `01_criacao_esquema.sql` file.
-3.  Execute the entire script (⚡ icon). This will create the `animes_db` schema and all its tables.
+  ```bash
+  pip install pandas mysql-connector-python
+  ```
 
-### 2. Run Test Data (Optional)
+---
 
-1.  Open the `02_testes_e_amostras.sql` file in Workbench.
-2.  Execute the script.
-3.  You can now run `SELECT` statements (e.g., `SELECT * FROM USUARIO;`) to verify that the tables were populated correctly.
+### 1️⃣ Database Creation
 
-### 3. Run Performance Analysis
+1. Open **MySQL Workbench** and connect to your MySQL instance.
+2. Open the file `01_criacao_esquema.sql`.
+3. Run the script (⚡ Execute All).
+   → This creates the full `animes_db` schema with all tables and constraints.
 
-1.  Open the `DCC011_TP2_Analise_Desempenho.ipynb` notebook in Google Colab or a local Jupyter instance.
-2.  Locate the **"Configuração do Ambiente"** (Environment Setup) cell at the beginning of the notebook.
-3.  Update the `DB_HOST`, `DB_USER`, `DB_PASSWORD`, and `DB_NAME` variables to match your database credentials.
-4.  Run all cells in the notebook sequentially (`Runtime > Run all`).
+---
+
+### 2️⃣ Run Test Data (Optional)
+
+1. Open `02_testes_e_amostras.sql` in MySQL Workbench.
+2. Execute the entire script.
+3. Verify the data:
+
+   ```sql
+   SELECT * FROM USUARIO;
+   SELECT * FROM ANIME;
+   ```
+
+---
+
+### 3️⃣ Run Performance Analysis
+
+1. Open the notebook `DCC011_TP2_Analise_Desempenho.ipynb` in **Google Colab** or **Jupyter**.
+2. In the first cell (*Configuração do Ambiente*), update:
+
+   ```python
+   DB_HOST = "your_host"
+   DB_USER = "your_username"
+   DB_PASSWORD = "your_password"
+   DB_NAME = "animes_db"
+   ```
+3. Run all cells sequentially (`Runtime > Run all`).
 
 The notebook will:
-* Connect to your database.
-* Populate the tables with a large volume of synthetic data (required for performance testing).
-* Execute all 10 analysis queries, each with 2+ formulations.
-* Time each execution (averaged over 5 runs) and display the results in formatted tables.
+
+* 🔌 Connect to your MySQL instance
+* 📊 Populate the database with synthetic data
+* ⚙️ Execute and benchmark 10+ SQL queries in different formulations
+* ⏱️ Measure and compare average execution times
+
+---
+
+## 🔐 Database Access
+
+For academic integrity and data security reasons, **the original populated database (with full test dataset)** is **not publicly accessible**.
+
+> 📨 If you would like to explore the original dataset or connect to the remote instance used for benchmarking, please **contact me directly** for access credentials.
+> Sensitive information (e.g., passwords or host details) will only be shared upon verified request for educational purposes.
 
 ---
 
 ## 📊 Query Performance Analysis
 
-The primary goal of this project is documented in the Jupyter Notebook (`.ipynb`). We analyze 10 distinct queries, each formulated in at least two different ways to compare their performance.
+Performance tests are detailed in the Jupyter notebook.
+Each query is analyzed in two or more formulations to evaluate SQL efficiency.
 
-* **Metrics:** Each query variant is executed 5 times to mitigate cold-start issues, and the **average execution time** is reported.
-* **Analysis Topics Include:**
-    * Simple selections and projections.
-    * 2-Table Joins (`INNER JOIN` vs. implicit `WHERE` clause).
-    * Multi-Table (3+) Joins (`INNER JOIN` vs. nested subqueries).
-    * Aggregations (`GROUP BY`, `AVG`, `COUNT`) combined with `JOIN`s and `HAVING` clauses.
+**Metrics & Methodology**
+
+* ⏱️ Each query runs 5 times (average execution time recorded).
+* 🧮 Topics include:
+
+  * Simple projections and selections
+  * 2-table and 3+ table joins
+  * Aggregations with `GROUP BY`, `HAVING`, and nested subqueries
+  * Query optimization and indexing impact
 
 ---
