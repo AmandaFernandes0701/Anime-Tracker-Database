@@ -82,10 +82,10 @@ ER-to-relational mapping follows formal academic standards.
 
 ```
 📦 AniVerse-DB
-├── 📄 01_criacao_esquema.sql                # DDL: creates full schema (tables, FKs, constraints)
-├── 📄 02_testes_e_amostras.sql              # DML: sample/test data to validate schema
-├── 📘 DCC011_TP2_Analise_Desempenho.ipynb   # Jupyter/Colab notebook for performance analysis
-└── 🪶 README.md                             # You’re reading it now :)
+├── 📄 01_criacao_esquema.sql                     # DDL: creates full schema (tables, FKs, constraints)
+├── 📄 02_testes_e_amostras.sql                   # DML: sample/test data to validate schema
+├── 📘 TP2_Implementacao_Consultas_Animes.ipynb   # Notebook for data loading (DML), all 10 analysis queries, and performance benchmarking.
+└── 🪶 README.md                                  # You’re reading it now :)
 ```
 
 ---
@@ -132,7 +132,7 @@ Make sure you have:
 
 ### 3️⃣ Run Performance Analysis
 
-1. Open the notebook `DCC011_TP2_Analise_Desempenho.ipynb` in **Google Colab** or **Jupyter**.
+1. Open the notebook `TP2_Implementacao_Consultas_Animes.ipynb` in **Google Colab** or **Jupyter**.
 2. In the first cell (*Configuração do Ambiente*), update:
 
    ```python
@@ -145,10 +145,11 @@ Make sure you have:
 
 The notebook will:
 
-* 🔌 Connect to your MySQL instance
-* 📊 Populate the database with synthetic data
-* ⚙️ Execute and benchmark 10+ SQL queries in different formulations
-* ⏱️ Measure and compare average execution times
+🔌 Connect to your MySQL instance.
+🚛 Populate the database with a large volume of synthetic data (DML).
+⚙️ Execute all 10 required analysis queries, each in at least two different formulations.
+⏱️ Measure and benchmark the execution time of each query (averaged over 5 runs to avoid cold-start issues).
+📈 Display the results and timings in formatted tables for easy comparison.
 
 ---
 
