@@ -42,7 +42,7 @@ ER-to-relational mapping follows formal academic standards.
 
 ### 📘 EER Diagram
 
-<img width="708" height="612" alt="diagrama_EER_imagem" src="https://github.com/user-attachments/assets/f38c2097-c720-4fdd-8d12-53985fc1d44c" />
+<img width="1920" height="1080" alt="Diagrama ER - IBD" src="https://github.com/user-attachments/assets/87e16e1c-5f62-43cb-be89-81ea0c91efd9" />
 
 > *EER Diagram generated with MySQL Workbench*
 
