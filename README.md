@@ -16,7 +16,7 @@ The schema supports the core functionalities of a modern anime tracking platform
 
 * **User Management:** User registration and profiles.
 * **Anime Cataloging:** Detailed anime information with studio relations (`ESTUDIO`).
-* **Personalized Tracking:** Custom user lists (`LISTA_USUARIO`) with status, rating, and episode progress.
+* **Personalized Tracking:** Custom user lists (`WATCHLIST`) with status, rating, and episode progress.
 * **Review System:** User-written reviews linked to `USUARIO` and `ANIME`.
 * **Normalized Design:** Fully normalized (3NF), eliminating redundancy and ensuring data integrity.
 
@@ -55,7 +55,7 @@ ER-to-relational mapping follows formal academic standards.
 | **`ANIME`** | Main anime catalog. Linked to `ESTUDIO` via FK. |
 | **`REVIEW`** | User reviews linked to `USUARIO` and `ANIME`. |
 | **`ANIME_GENERO`** | Handles M:N relationships for anime genres. |
-| **`LISTA_USUARIO`** | Core M:N table linking users and anime with tracking data. |
+| **`WATCHLIST`** | Core M:N table linking users and anime with tracking data. |
 
 ---
 
