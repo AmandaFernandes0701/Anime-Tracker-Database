@@ -85,116 +85,37 @@ ER-to-relational mapping follows formal academic standards.
 ├── 📄 Relatorio_Final_IBD.pdf      # Full academic report with performance conclusions
 ├── 📄 Slide_Trabalho_IBD.pdf       # Slides of the final presentation
 └── 🪶 README.md                    # You’re reading it now :)
-
------
-
-## 🚀 Setup and Connection
-
-There are two ways to work with this project:
-
-1.  **Connect to the live, shared cloud database** (Recommended for the team/professor).
-2.  **Create a local replication** (If you want your own separate copy).
-
------
-
-### 🟢 Option 1: Connect to the Live Cloud DB (Recommended)
-
-The project's main database is hosted on **Railway.app**, allowing the team and professor to access the same consistent dataset — also compatible with **Google Colab**.
-
-#### 1\. Connect with MySQL Workbench
-
-1.  Open MySQL Workbench and click the **`+`** icon to create a new connection.
-2.  You will need the following credentials:
-      * `Hostname`
-      * `Port`
-      * `Username`
-      * `Password`
-      * `Default Schema` (Database Name)
-3.  **To get these credentials, please contact Amanda Fernandes directly.**
-4.  Click **"Test Connection"**, enter the password, and save.
-    You can now browse the live cloud database.
-
-#### 2\. Run Performance Analysis (Google Colab / Jupyter)
-
-1.  Open the notebook `TP2_Implementacao_Consultas_Animes.ipynb`.
-2.  In the first code cell (*Configuração do Ambiente*), enter the credentials provided:
-
-<!-- end list -->
-
-```python
-# Credentials for the Railway.app hosted database
-DB_HOST = "your_host_from_railway"
-DB_USER = "your_username_from_railway"
-DB_PASSWORD = "your_password_from_railway"
-DB_NAME = "your_database_name_from_railway"
-DB_PORT = "your_port_from_railway"
 ```
 
 -----
 
-### ⚙️ Option 2: Replicate the Project Locally (Advanced)
+## 🚀 Setup and Usage
 
-If you want to create your own local version of the database:
+To replicate this project locally or review the database structure:
 
-#### Prerequisites
+### Prerequisites
+* **MySQL Server 8.0+**
+* **MySQL Workbench** (or any SQL client)
 
-Make sure you have the following installed:
+### Installation Steps
 
-  * **MySQL Server** and **MySQL Workbench**
-  * **Python 3.x** with the following libraries:
+1.  **Clone the repository:**
     ```bash
-    pip install mysql-connector-python pandas
+    git clone [https://github.com/AmandaFernandes0701/Anime-Tracker-Database.git](https://github.com/AmandaFernandes0701/Anime-Tracker-Database.git)
     ```
-  * **Jupyter Notebook** or access to **Google Colab** for analysis
-
-#### Database Creation
-
-1.  Connect to your `localhost` instance in MySQL Workbench.
-2.  Open the file `01_criacao_esquema.sql`.
-3.  Modify the script for local use:
-      * Uncomment (or add):
-        ```sql
-        CREATE SCHEMA IF NOT EXISTS animes_db;
-        ```
-      * Replace:
-        ```sql
-        USE railway;
-        ```
-      * with:
-        ```sql
-        USE animes_db;
-        ```
-4.  Run the entire script (⚡icon ) to create the schema on your local machine.
-
-#### Run Test Data & Analysis
-
-1.  Open `02_testes_e_amostras.sql` and replace:
-    ```sql
-    USE railway;
-    ```
-    with:
-    ```sql
-    USE animes_db;
-    ```
-2.  Execute the script to populate the tables.
-3.  Follow the same Performance Analysis steps, but use your local credentials, for example:
-
-<!-- end list -->
-
-```python
-DB_HOST = "localhost"
-DB_USER = "root"
-DB_PASSWORD = "your_password"
-DB_NAME = "animes_db"
-DB_PORT = "3306"
-```
+2.  **Create the Schema:**
+    * Open `01_criacao_esquema.sql` in MySQL Workbench.
+    * Run the script to create the `animes_db` (or `railway` schema depending on configuration).
+3.  **Populate Data:**
+    * Run `02_testes_e_amostras.sql` or the scripts inside the `inserts/` folder to load data.
+4.  **Run Queries:**
+    * Explore the `queries/` folder to test the specific analysis queries used in the project.
 
 -----
 
 ## 📊 Query Performance Analysis
 
-Performance tests are detailed in the Jupyter notebook.
-Each query was executed in two or more formulations to evaluate SQL efficiency.
+The detailed performance analysis, comparing execution times and query optimizations, is documented in the **`Relatorio_Final_IBD.pdf`**.
 
 ### 📈 Metrics & Methodology
 
