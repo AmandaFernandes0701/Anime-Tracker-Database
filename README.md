@@ -35,12 +35,12 @@ The schema supports the core functionalities of a modern anime tracking platform
 
 | Category | Tools |
 | :--- | :--- |
-| **Database** | MySQL Server 8.0 |
-| **Cloud Hosting** | **Railway.app** |
-| **IDE & Design** | MySQL Workbench |
-| **Analysis & Scripting** | Python 3 (Google Colab / Jupyter) |
-| **Connector** | `mysql-connector-python` |
-| **Data Handling** | `pandas` |
+| **Database Engine** | MySQL Server 8.0 |
+| **Cloud Hosting** | **Railway.app** (Initial Development & Collaboration) |
+| **IDE & Modeling** | MySQL Workbench |
+| **Language** | SQL (DDL, DML, DQL) - ANSI Standards |
+| **Performance Analysis** | MySQL Execution Plans (`EXPLAIN ANALYZE`) |
+| **Documentation** | LaTeX (Overleaf) & Canva |
 
 ---
 
