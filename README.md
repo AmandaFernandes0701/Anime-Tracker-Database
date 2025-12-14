@@ -9,6 +9,15 @@ Developed as the final project for the **Introduction to Databases (DCC011)** co
 The project focuses on **robust relational schema design**, **3NF normalization**, **SQL DDL/DML implementation**, and **query performance analysis**.
 
 ---
+## 📺 Project Resources & Presentation
+
+Access the visual materials and the final video presentation of the project:
+
+* **🎬 Video Presentation (YouTube):** [Watch Here](https://youtu.be/ABWRkOxzDIk?si=0nLSDA6aimg3X0CO)
+* **📊 Slides (Canva):** [View Presentation](https://www.canva.com/design/DAG61vPgsVM/TSbove_DAZB7YUYNo8YG6g/view)
+* **📑 Full Report:** Check the `Relatorio_Final_IBD.pdf` file in this repository for the complete documentation.
+
+---
 
 ## ✨ Key Features
 
@@ -69,11 +78,13 @@ ER-to-relational mapping follows formal academic standards.
 
 ```text
 📦 AniVerse-DB
-├── 📄 01_criacao_esquema.sql                       # DDL: creates full schema (tables, FKs, constraints)
-├── 📄 02_testes_e_amostras.sql                     # DML: sample/test data to validate schema
-├── 📘 TP2_Implementacao_Consultas_Animes.ipynb     # Notebook for data loading (DML), all 10 analysis queries, and performance benchmarking.
-└── 🪶 README.md                                    # You’re reading it now :)
-````
+├── 📂 inserts/                     # Scripts containing data population instructions
+├── 📂 queries/                     # SQL scripts for performance analysis and reports
+├── 📄 01_criacao_esquema.sql       # DDL: creates full schema (tables, FKs, constraints)
+├── 📄 02_testes_e_amostras.sql     # DML: sample/test data to validate schema
+├── 📄 Relatorio_Final_IBD.pdf      # Full academic report with performance conclusions
+├── 📄 Slide_Trabalho_IBD.pdf       # Slides of the final presentation
+└── 🪶 README.md                    # You’re reading it now :)
 
 -----
 
