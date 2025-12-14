@@ -1,16 +1,15 @@
 -- ====================================================================
 -- Arquivo: 02_testes_e_amostras.sql
--- (VERSÃO MODIFICADA PARA NUVEM/RAILWAY)
---
--- Objetivo: Inserir dados de amostra para verificar a integridade
---           do esquema na nuvem.
+-- (VERSÃO AJUSTADA PARA LOCALHOST - ANIMES_DB)
 -- ====================================================================
 
--- Informa ao MySQL para usar o banco de dados correto.
-USE `railway`;
+-- 1. SELEÇÃO DO BANCO
+-- Se estiver rodando LOCAL (no seu PC), use 'animes_db'.
+-- Se estiver rodando na NUVEM (Railway), mude para 'railway'.
+USE `animes_db`; 
 
 -- --------------------------------------------------------------------
--- 1. LIMPEZA DE DADOS DE TESTE (Opcional, mas recomendado)
+-- 2. LIMPEZA DE DADOS (TRUNCATE)
 -- --------------------------------------------------------------------
 SET FOREIGN_KEY_CHECKS = 0;
 TRUNCATE TABLE `ESTUDIO`;
@@ -18,13 +17,14 @@ TRUNCATE TABLE `USUARIO`;
 TRUNCATE TABLE `ANIME`;
 TRUNCATE TABLE `REVIEW`;
 TRUNCATE TABLE `ANIME_GENERO`;
-TRUNCATE TABLE `WATCHLIST`;
+TRUNCATE TABLE `WATCHLIST`; 
 SET FOREIGN_KEY_CHECKS = 1;
 
 
 -- --------------------------------------------------------------------
--- 2. INSERÇÃO DE DADOS DE AMOSTRA (DML - INSERT)
+-- 3. INSERÇÃO DE DADOS DE AMOSTRA
 -- --------------------------------------------------------------------
+
 INSERT INTO `ESTUDIO` (`Nome`, `AnoFundacao`) VALUES
 ('MAPPA', 2011),
 ('Wit Studio', 2012),
@@ -40,30 +40,26 @@ INSERT INTO `ANIME` (`Titulo`, `Sinopse`, `DataLancamento`, `EstudioID_FK`) VALU
 ('Demon Slayer', 'Um jovem caçador de demônios...', '2019-04-06', 3);
 
 INSERT INTO `ANIME_GENERO` (`AnimeID_FK`, `Genero`) VALUES
-(1, 'Ação'),
-(1, 'Sobrenatural'),
-(1, 'Shounen'),
-(2, 'Ação'),
-(2, 'Drama'),
-(2, 'Fantasia Sombria');
+(1, 'Ação'), (1, 'Sobrenatural'), (1, 'Shounen'),
+(2, 'Ação'), (2, 'Drama'), (2, 'Fantasia Sombria');
 
--- Tabela renomeada para WATCHLIST
+-- Tabela WATCHLIST (Antiga LISTA_USUARIO)
 INSERT INTO `WATCHLIST` (`UsuarioID_FK`, `AnimeID_FK`, `Status`, `NotaDada`, `EpisodioAtual`) VALUES
 (1, 1, 'Assistindo', 10, 12),
 (1, 2, 'Completo', 9, 25),
 (2, 3, 'Planejando', NULL, 0);
 
--- Coluna atualizada para 'Texto' (conforme seu esquema oficial)
+-- Tabela REVIEW (Com coluna 'Texto' e sem ID)
 INSERT INTO `REVIEW` (`Texto`, `UsuarioID_FK`, `AnimeID_FK`) VALUES
-('Uma obra-prima de animação e história. O impacto da primeira temporada é inesquecível!', 1, 2);
+('Uma obra-prima de animação e história!', 1, 2);
 
 
 -- --------------------------------------------------------------------
--- 3. VERIFICAÇÃO DOS DADOS (SELECT)
+-- 4. VERIFICAÇÃO FINAL
 -- --------------------------------------------------------------------
 SELECT * FROM `ESTUDIO`;
 SELECT * FROM `USUARIO`;
 SELECT * FROM `ANIME`;
 SELECT * FROM `ANIME_GENERO` WHERE `AnimeID_FK` = 1;
-SELECT * FROM `WATCHLIST` WHERE `UsuarioID_FK` = 1; -- Atualizado de LISTA_USUARIO
+SELECT * FROM `WATCHLIST` WHERE `UsuarioID_FK` = 1;
 SELECT * FROM `REVIEW` WHERE `UsuarioID_FK` = 1;
