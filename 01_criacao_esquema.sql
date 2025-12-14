@@ -1,13 +1,32 @@
 -- ====================================================================
 -- Arquivo: 01_criacao_esquema.sql
--- (VERSÃO MODIFICADA PARA NUVEM/RAILWAY)
+-- (VERSÃO LOCAL - LOCALHOST)
 --
--- Objetivo: Criar as tabelas e relacionamentos conforme documentação oficial.
+-- Objetivo: Criar o banco de dados (Schema) e as tabelas na sua máquina.
 -- ====================================================================
 
--- 1. SELEÇÃO DO BANCO DE DADOS DA NUVEM
-USE `railway`;
+-- 1. CRIAÇÃO E SELEÇÃO DO BANCO DE DADOS
+-- Cria o banco "animes_db" se ele não existir
+CREATE SCHEMA IF NOT EXISTS `animes_db` DEFAULT CHARACTER SET utf8mb4;
 
+
+USE animes_db;
+DROP TABLE IF EXISTS `LISTA_USUARIO`;
+
+-- --------------------------------------------------------------------
+-- 2. REMOÇÃO DE TABELAS (para re-execução limpa)
+-- --------------------------------------------------------------------
+DROP TABLE IF EXISTS `WATCHLIST`;
+DROP TABLE IF EXISTS `ANIME_GENERO`;
+DROP TABLE IF EXISTS `REVIEW`;
+DROP TABLE IF EXISTS `ANIME`;
+DROP TABLE IF EXISTS `ESTUDIO`;
+DROP TABLE IF EXISTS `USUARIO`;
+
+
+-- --------------------------------------------------------------------
+-- 3. CRIAÇÃO DAS TABELAS (DDL)
+-- --------------------------------------------------------------------
 -- --------------------------------------------------------------------
 -- 2. REMOÇÃO DE TABELAS (para re-execução limpa)
 -- --------------------------------------------------------------------
@@ -44,7 +63,6 @@ CREATE TABLE IF NOT EXISTS `USUARIO` (
 );
 
 -- Tabela 3: ANIME
--- Mantido como Estúdio Opcional (NULL) com SET NULL
 CREATE TABLE IF NOT EXISTS `ANIME` (
   `AnimeID` INT NOT NULL AUTO_INCREMENT,
   `Titulo` VARCHAR(255) NOT NULL,
@@ -61,7 +79,6 @@ CREATE TABLE IF NOT EXISTS `ANIME` (
 );
 
 -- Tabela 4: REVIEW
--- Atualizado: Sem ReviewID, Chave Primária Composta
 CREATE TABLE IF NOT EXISTS `REVIEW` (
   `Texto` TEXT NOT NULL,
   `Data` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
